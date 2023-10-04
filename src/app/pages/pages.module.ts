@@ -5,6 +5,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LeftComponent } from './questions/left/left.component';
 import { RightComponent } from './questions/right/right.component';
+import { UiModule } from '../ui/ui.module';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    UiModule,
     RouterModule.forChild(routes),
     
   ]

@@ -6,47 +6,53 @@
     <ul class="">
       <!-- First Step -->
       <li class="">
-        <a (click)="toggleStep(1)" role="button">
-          <span class="badge bg-primary rounded-circle lead badge-large"
+        <a (click)="toggleStep(1)" role="button" >
+          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 1 ? 'bg-primary-dark': 'bg-primary'"
             >1</span
           >
-          <span class="lead ms-2 ms-2"> Step 1 </span>
+          <span class="lead ms-2 ms-2 " [ngClass]="activeStep === 1 ? 'text-primary-dark': 'text-primary'"> Step 1 </span>
         </a>
 
-        <ng-container
-          *ngIf="!isCollapsed(1); else stepGap"
-        >
-          <div [@inOutAnimation] class="border-start border-secondary-subtle ms-3 mt-2 ps-3">
+        <ng-container *ngIf="!isCollapsed(1); else stepGap">
+          <div
+            [@inOutAnimation]
+            class="border-start border-secondary-subtle ms-3 mt-2 ps-3"
+          >
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
               cupiditate voluptate facere iusto quaerat vitae excepturi,
               accusantium ut aliquam repellat atque nesciunt nostrum similique.
               Inventore nostrum ut, nobis porro sapiente.
-              
             </p>
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-primary ms-2"(click)="gotoStep(2)">Next</button>
+                <button
+                  class="btn btn-md btn-primary ms-2"
+                  (click)="gotoStep(2)"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <!-- /.Vertical Steppers -->
           </div>
         </ng-container>
       </li>
-       <!-- Second Step -->
-       <li class="mt-2">
+      <!-- Second Step -->
+      <li class="mt-2">
         <a (click)="toggleStep(2)" role="button">
-          <span class="badge bg-primary rounded-circle lead badge-large"
+          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 2 ? 'bg-primary-dark': 'bg-primary'"
             >2</span
           >
-          <span class="lead ms-2"> Step 2 </span>
+          <span class="lead ms-2" [ngClass]="activeStep === 2 ? 'text-primary-dark': 'text-primary'"> Step 2 </span>
         </a>
 
-        <ng-container
-          *ngIf="!isCollapsed(2); else stepGap"
-        >
-          <div [@inOutAnimation] class="border-start border-secondary-subtle ms-3 mt-2 ps-3">
+        <ng-container *ngIf="!isCollapsed(2); else stepGap">
+          <div
+            [@inOutAnimation]
+            class="border-start border-secondary-subtle ms-3 mt-2 ps-3"
+          >
             <p>
               2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
               cupiditate voluptate facere iusto quaerat vitae excepturi,
@@ -56,27 +62,35 @@
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-light"  (click)="gotoStep(1)">Back</button>
-                <button class="btn btn-md btn-primary ms-2"  (click)="gotoStep(3)">Next</button>
+                <button class="btn btn-md btn-light" (click)="gotoStep(1)">
+                  Back
+                </button>
+                <button
+                  class="btn btn-md btn-primary ms-2"
+                  (click)="gotoStep(3)"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <!-- /.Vertical Steppers -->
           </div>
         </ng-container>
       </li>
-       <!-- Third Step -->
-       <li class="mt-2">
+      <!-- Third Step -->
+      <li class="mt-2">
         <a (click)="toggleStep(3)" role="button">
-          <span class="badge bg-primary rounded-circle lead badge-large"
+          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 3 ? 'bg-primary-dark': 'bg-primary'"
             >3</span
           >
-          <span class="lead ms-2"> Step 3 </span>
+          <span class="lead ms-2" [ngClass]="activeStep === 3 ? 'text-primary-dark': 'text-primary'"> Step 3 </span>
         </a>
 
-        <ng-container
-          *ngIf="!isCollapsed(3); else stepGap"
-        >
-          <div [@inOutAnimation] class="border-start border-secondary-subtle ms-3 mt-2 ps-3">
+        <ng-container *ngIf="!isCollapsed(3); else stepGap">
+          <div
+            [@inOutAnimation]
+            class="border-start border-secondary-subtle ms-3 mt-2 ps-3"
+          >
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
               cupiditate voluptate facere iusto quaerat vitae excepturi,
@@ -86,26 +100,31 @@
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-light" (click)="gotoStep(2)">Back</button>
-                <button class="btn btn-md btn-primary ms-2" (click)="gotoStep(4)">Next</button>
+                <button class="btn btn-md btn-light" (click)="gotoStep(2)">
+                  Back
+                </button>
+                <button
+                  class="btn btn-md btn-primary ms-2"
+                  (click)="gotoStep(4)"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <!-- /.Vertical Steppers -->
           </div>
         </ng-container>
       </li>
-       <!-- Fourth Step -->
-       <li class="mt-2">
+      <!-- Fourth Step -->
+      <li class="mt-2">
         <a (click)="toggleStep(4)" role="button">
-          <span class="badge bg-primary rounded-circle lead badge-large"
+          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 4 ? 'bg-primary-dark': 'bg-primary'"
             >4</span
           >
-          <span class="lead ms-2"> Step 4 </span>
+          <span class="lead ms-2" [ngClass]="activeStep === 4 ? 'text-primary-dark': 'text-primary'"> Step 4 </span>
         </a>
 
-        <ng-container
-          *ngIf="!isCollapsed(4)"
-        >
+        <ng-container *ngIf="!isCollapsed(4)">
           <div class="ms-3 mt-2 ps-3">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
@@ -116,7 +135,9 @@
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-light" (click)="gotoStep(3)">Back</button>
+                <button class="btn btn-md btn-light" (click)="gotoStep(3)">
+                  Back
+                </button>
                 <button class="btn btn-md btn-primary ms-2">Submit</button>
               </div>
             </div>
@@ -124,8 +145,6 @@
           </div>
         </ng-container>
       </li>
-
-    
     </ul>
     <!-- /.Stepers Wrapper -->
   </div>

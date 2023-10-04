@@ -14,3 +14,11 @@ body {
 body::-webkit-scrollbar {
     display: none;
   }
+
+.bg-primary-dark {
+    background-color: $blue-700;
+}
+
+.text-primary-dark {
+    color: $blue-700;
+}

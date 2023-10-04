@@ -31,17 +31,17 @@ import { trigger, transition, style, animate} from '@angular/animations';
   ]
 })
 export class LeftComponent {
-  visibleStep = 1;
+  activeStep = 1;
   collapsedSteps: number[] = [2, 3, 4];
   isCollapsed(stepNumber: number): boolean {
-    return this.visibleStep !== stepNumber;
+    return this.activeStep !== stepNumber;
   }
 
   toggleStep(stepNumber: number) {
-    this.visibleStep = this.visibleStep === stepNumber ? this.visibleStep : stepNumber;
+    this.activeStep = this.activeStep === stepNumber ? this.activeStep : stepNumber;
   }
 
   gotoStep(stepNumber: number) {
-    this.visibleStep = stepNumber;
+    this.activeStep = stepNumber;
   }
 }

@@ -10,3 +10,7 @@ body {
 .border-dashed{
     border-style: dashed;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+  }

@@ -1,0 +1,29 @@
+<div class="stepper-container">
+    <div class="stepper" *ngIf="steps.length">
+      <!-- <ng-container *ngFor="let step of steps; let i = index">
+        <div class="step-item" [class.active]="currentStep === i + 1">{{ i + 1 }}</div>
+          <ng-content></ng-content>
+        <div class="step-buttons">
+          <button
+            class="step-button-secondary"
+            (click)="prevStep()"
+            [disabled]="currentStep === 1"
+          >
+            Previous
+          </button>
+          <button class="step-button-primary" (click)="nextStep()">Next</button>
+        </div>
+      </ng-container> -->
+      <ng-content></ng-content>
+      <div class="step-buttons">
+        <button
+          class="step-button-secondary"
+          (click)="prevStep()"
+          [disabled]="currentStep === 1"
+        >
+          Previous
+        </button>
+        <button class="step-button-primary" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+  </div>

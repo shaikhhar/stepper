@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent {
-
+  currentStep = 1;
 }

@@ -7,43 +7,78 @@
       <!-- First Step -->
       <li class="">
         <a (click)="toggleStep(1)" role="button">
-          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 1 ? 'bg-primary-dark': 'bg-primary'">1</span>
-          <span class="lead ms-2 ms-2 " [ngClass]="activeStep === 1 ? 'text-primary-dark': 'text-primary'"> Step 1 </span>
+          <span
+            class="badge rounded-circle lead badge-large"
+            [ngClass]="activeStep === 1 ? 'bg-primary-dark' : 'bg-primary'"
+            >1</span
+          >
+          <span
+            class="lead ms-2 ms-2"
+            [ngClass]="activeStep === 1 ? 'text-primary-dark' : 'text-primary'"
+          >
+            Step 1
+          </span>
         </a>
 
         <ng-container *ngIf="!isCollapsed(1); else stepGap">
-          <div [@inOutAnimation] class="border-start border-secondary-subtle ms-3 mt-2 ps-3">
+          <div
+            [@inOutAnimation]
+            class="border-start border-secondary-subtle ms-3 mt-2 ps-3"
+          >
             <!-- Step 1 Questions -->
             <div *ngIf="activeStep === 1">
-              <p>Is company group insurance applicable?</p>
-              <label>
-                <input type="radio" name="q1" [(ngModel)]="q1" value="Yes"> Yes
-              </label>
-              <label>
-                <input type="radio" name="q1" [(ngModel)]="q1" value="No"> No
-              </label>
-              <small class="text-muted">(A group insurance is needed by every company)</small>
+              <label class="form-label"
+                >Is company group insurance applicable?</label
+              >
+              <small class="text-muted"
+                  >(A group insurance is needed by every company)</small
+                >
+              <div class="col d-flex justify-content-end">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q1"
+                    [(ngModel)]="q1"
+                    value="Yes"
+                    id="1"
+                  />
+                  <label class="form-check-label" for="q1"> Yes </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q1"
+                    [(ngModel)]="q1"
+                    value="No"
+                    id="1"
+                  />
+                  <label class="form-check-label" for="q1"> No </label>
+                </div>
+              </div>
             </div>
             <!-- Step 1 Questions End -->
 
             <!-- Step 2 Questions -->
             <div *ngIf="activeStep === 1 && q1 === 'Yes'">
               <p>What is your company's age?</p>
-              <input type="number" [(ngModel)]="q2" min="0" max="100">
+              <input type="number" [(ngModel)]="q2" min="0" max="100" />
             </div>
 
             <div *ngIf="activeStep === 1 && q1 === 'Yes'">
               <p>What is the current group insurance premium?</p>
-              <input type="number" [(ngModel)]="q3">
+              <input type="number" [(ngModel)]="q3" />
             </div>
 
             <div *ngIf="activeStep === 1">
               <p>Have you had any subsidiary company?</p>
               <label>
-                <input type="radio" name="q4" [(ngModel)]="q4" value="Yes"> Yes
+                <input type="radio" name="q4" [(ngModel)]="q4" value="Yes" />
+                Yes
               </label>
               <label>
-                <input type="radio" name="q4" [(ngModel)]="q4" value="No"> No
+                <input type="radio" name="q4" [(ngModel)]="q4" value="No" /> No
               </label>
             </div>
             <!-- Step 2 Questions End -->
@@ -51,19 +86,24 @@
             <!-- Step 3 Questions -->
             <div *ngIf="activeStep === 1 && q4 === 'Yes'">
               <p>What is your subsidiary's age?</p>
-              <input type="number" [(ngModel)]="q5" min="0">
+              <input type="number" [(ngModel)]="q5" min="0" />
             </div>
 
             <div *ngIf="activeStep === 1 && q4 === 'Yes'">
               <p>What is the premium of subsidiary company?</p>
-              <input type="number" [(ngModel)]="q6">
+              <input type="number" [(ngModel)]="q6" />
             </div>
             <!-- Step 3 Questions End -->
 
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-primary ms-2" (click)="gotoStep(2)">Next</button>
+                <button
+                  class="btn btn-md btn-primary ms-2"
+                  (click)="gotoStep(2)"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <!-- /.Vertical Steppers -->
@@ -73,20 +113,33 @@
       <!-- Second Step -->
       <li class="mt-2">
         <a (click)="toggleStep(2)" role="button">
-          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 2 ? 'bg-primary-dark': 'bg-primary'">2</span>
-          <span class="lead ms-2" [ngClass]="activeStep === 2 ? 'text-primary-dark': 'text-primary'"> Step 2 </span>
+          <span
+            class="badge rounded-circle lead badge-large"
+            [ngClass]="activeStep === 2 ? 'bg-primary-dark' : 'bg-primary'"
+            >2</span
+          >
+          <span
+            class="lead ms-2"
+            [ngClass]="activeStep === 2 ? 'text-primary-dark' : 'text-primary'"
+          >
+            Step 2
+          </span>
         </a>
 
         <ng-container *ngIf="!isCollapsed(2); else stepGap">
-          <div [@inOutAnimation] class="border-start border-secondary-subtle ms-3 mt-2 ps-3">
+          <div
+            [@inOutAnimation]
+            class="border-start border-secondary-subtle ms-3 mt-2 ps-3"
+          >
             <!-- Step 2 Questions -->
             <div *ngIf="activeStep === 2">
               <p>Are you into a manufacturing business?</p>
               <label>
-                <input type="radio" name="q7" [(ngModel)]="q7" value="Yes"> Yes
+                <input type="radio" name="q7" [(ngModel)]="q7" value="Yes" />
+                Yes
               </label>
               <label>
-                <input type="radio" name="q7" [(ngModel)]="q7" value="No"> No
+                <input type="radio" name="q7" [(ngModel)]="q7" value="No" /> No
               </label>
             </div>
             <!-- Step 2 Questions End -->
@@ -94,16 +147,18 @@
             <!-- Step 3 Questions -->
             <div *ngIf="activeStep === 2 && q7 === 'Yes'">
               <p>What rent do you pay for rented shade?</p>
-              <input type="number" [(ngModel)]="q8" min="0">
+              <input type="number" [(ngModel)]="q8" min="0" />
             </div>
 
             <div *ngIf="activeStep === 2 && q7 === 'Yes'">
               <p>Where is your shade located?</p>
               <label>
-                <input type="radio" name="q9" [(ngModel)]="q9" value="Urban"> Urban
+                <input type="radio" name="q9" [(ngModel)]="q9" value="Urban" />
+                Urban
               </label>
               <label>
-                <input type="radio" name="q9" [(ngModel)]="q9" value="Rural"> Rural
+                <input type="radio" name="q9" [(ngModel)]="q9" value="Rural" />
+                Rural
               </label>
             </div>
             <!-- Step 3 Questions End -->
@@ -111,8 +166,15 @@
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-light" (click)="gotoStep(1)">Back</button>
-                <button class="btn btn-md btn-primary ms-2" (click)="gotoStep(3)">Next</button>
+                <button class="btn btn-md btn-light" (click)="gotoStep(1)">
+                  Back
+                </button>
+                <button
+                  class="btn btn-md btn-primary ms-2"
+                  (click)="gotoStep(3)"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <!-- /.Vertical Steppers -->
@@ -122,42 +184,65 @@
       <!-- Third Step -->
       <li class="mt-2">
         <a (click)="toggleStep(3)" role="button">
-          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 3 ? 'bg-primary-dark': 'bg-primary'">3</span>
-          <span class="lead ms-2" [ngClass]="activeStep === 3 ? 'text-primary-dark': 'text-primary'"> Step 3 </span>
+          <span
+            class="badge rounded-circle lead badge-large"
+            [ngClass]="activeStep === 3 ? 'bg-primary-dark' : 'bg-primary'"
+            >3</span
+          >
+          <span
+            class="lead ms-2"
+            [ngClass]="activeStep === 3 ? 'text-primary-dark' : 'text-primary'"
+          >
+            Step 3
+          </span>
         </a>
 
         <ng-container *ngIf="!isCollapsed(3); else stepGap">
-          <div [@inOutAnimation] class="border-start border-secondary-subtle ms-3 mt-2 ps-3">
+          <div
+            [@inOutAnimation]
+            class="border-start border-secondary-subtle ms-3 mt-2 ps-3"
+          >
             <!-- Step 3 Questions -->
             <div *ngIf="activeStep === 3">
               <p>Do you contribute to CSR?</p>
               <label>
-                <input type="radio" name="q10" [(ngModel)]="q10" value="Yes"> Yes
+                <input type="radio" name="q10" [(ngModel)]="q10" value="Yes" />
+                Yes
               </label>
               <label>
-                <input type="radio" name="q10" [(ngModel)]="q10" value="No"> No
+                <input type="radio" name="q10" [(ngModel)]="q10" value="No" />
+                No
               </label>
-              <small class="text-muted">(Corporate social responsibility is a must)</small>
+              <small class="text-muted"
+                >(Corporate social responsibility is a must)</small
+              >
             </div>
             <!-- Step 3 Questions End -->
 
             <!-- Step 4 Questions -->
             <div *ngIf="activeStep === 3 && q10 === 'Yes'">
               <p>How much does your company contribute?</p>
-              <input type="number" [(ngModel)]="q11" min="0">
+              <input type="number" [(ngModel)]="q11" min="0" />
             </div>
 
             <div *ngIf="activeStep === 3 && q10 === 'Yes'">
               <p>How much amount do you raise from people?</p>
-              <input type="number" [(ngModel)]="q12" min="0">
+              <input type="number" [(ngModel)]="q12" min="0" />
             </div>
             <!-- Step 4 Questions End -->
 
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-light" (click)="gotoStep(2)">Back</button>
-                <button class="btn btn-md btn-primary ms-2" (click)="gotoStep(4)">Next</button>
+                <button class="btn btn-md btn-light" (click)="gotoStep(2)">
+                  Back
+                </button>
+                <button
+                  class="btn btn-md btn-primary ms-2"
+                  (click)="gotoStep(4)"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <!-- /.Vertical Steppers -->
@@ -167,8 +252,17 @@
       <!-- Fourth Step -->
       <li class="mt-2">
         <a (click)="toggleStep(4)" role="button">
-          <span class="badge rounded-circle lead badge-large" [ngClass]="activeStep === 4 ? 'bg-primary-dark': 'bg-primary'">4</span>
-          <span class="lead ms-2" [ngClass]="activeStep === 4 ? 'text-primary-dark': 'text-primary'"> Step 4 </span>
+          <span
+            class="badge rounded-circle lead badge-large"
+            [ngClass]="activeStep === 4 ? 'bg-primary-dark' : 'bg-primary'"
+            >4</span
+          >
+          <span
+            class="lead ms-2"
+            [ngClass]="activeStep === 4 ? 'text-primary-dark' : 'text-primary'"
+          >
+            Step 4
+          </span>
         </a>
 
         <ng-container *ngIf="!isCollapsed(4)">
@@ -176,19 +270,21 @@
             <!-- Step 4 Questions -->
             <div *ngIf="activeStep === 4">
               <p>What is your total revenue?</p>
-              <input type="number" [(ngModel)]="q13" min="0">
+              <input type="number" [(ngModel)]="q13" min="0" />
             </div>
 
             <div *ngIf="activeStep === 4">
               <p>What is your total revenue from operation?</p>
-              <input type="number" [(ngModel)]="q14" min="0">
+              <input type="number" [(ngModel)]="q14" min="0" />
             </div>
             <!-- Step 4 Questions End -->
 
             <!-- Steppers Navigation -->
             <div class="row mt-1">
               <div class="col d-flex justify-content-end">
-                <button class="btn btn-md btn-light" (click)="gotoStep(3)">Back</button>
+                <button class="btn btn-md btn-light" (click)="gotoStep(3)">
+                  Back
+                </button>
                 <button class="btn btn-md btn-primary ms-2">Submit</button>
               </div>
             </div>
@@ -201,5 +297,8 @@
   </div>
 </div>
 <ng-template #stepGap>
-  <div class="border-start border-secondary-subtle ms-3 mt-2" style="min-height: 20px"></div>
+  <div
+    class="border-start border-secondary-subtle ms-3 mt-2"
+    style="min-height: 20px"
+  ></div>
 </ng-template>

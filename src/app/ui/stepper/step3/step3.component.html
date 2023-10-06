@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="mt-4 p-3">
+    <form
+      ngNativeValidate
+      #step3Form="ngForm"
+      (ngSubmit)="gotoStep(4, step3Form.valid)"
+    >
+      <!-- q1 start -->
+      <div class="row">
+        <div class="col-8">
+          <label class="form-label">1. Do you contribute to CSR? </label>
+          <p>
+            <small class="muted"
+              >(Corporate social responsibility is a must)</small
+            >
+          </p>
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+          <label class="form-label">
+            <label class="form-label">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q1"
+                [(ngModel)]="q1"
+                value="Yes"
+                [required]="true"
+              />
+              Yes
+            </label>
+            <label class="form-label ms-3">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q1"
+                [(ngModel)]="q1"
+                value="No"
+              />
+              No
+            </label>
+          </label>
+        </div>
+      </div>
+      <!-- q1 end -->
+
+      <!-- q2 -->
+      <div class="row my-5" *ngIf="q1 === 'Yes'">
+        <div class="col-9">
+          <label class="form-label"
+            >2. How much does your company contribute?</label
+          >
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+          <input
+            class="form-control"
+            name="q2"
+            type="number"
+            [(ngModel)]="q2"
+            min="0"
+          />
+        </div>
+      </div>
+      <!-- q2 end -->
+
+      <div class="row my-5" *ngIf="q1 === 'Yes'">
+        <div class="col-9">
+          <label class="form-label"
+            >3. How much amount do you raise from people?</label
+          >
+        </div>
+        <div class="col-3 d-flex-justify-content-end">
+          <input
+            class="form-control"
+            name="q3"
+            type="number"
+            [(ngModel)]="q3"
+            min="0"
+          />
+        </div>
+      </div>
+      <!-- q3 end -->
+
+      <!-- Steppers Navigation -->
+      <div class="row mt-5">
+        <div class="col d-flex justify-content-end">
+          <button class="btn btn-lg btn-light" (click)="gotoStep(2, true)">
+            Back
+          </button>
+          <button class="btn btn-lg btn-primary ms-2" type="submit">
+            Next
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

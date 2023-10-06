@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="mt-4 p-3">
+    <form
+      ngNativeValidate
+      #step2Form="ngForm"
+      (ngSubmit)="gotoStep(3, step2Form.valid)"
+    >
+      <!-- q1 start -->
+      <div class="row">
+        <div class="col-8">
+          <label for="" class="form-label"
+            >1. Are you into a manufacturing business?</label
+          >
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+          <label class="form-label">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q1"
+              [(ngModel)]="q1"
+              value="Yes"
+              [required]="true"
+            />
+            Yes
+          </label>
+          <label class="form-label ms-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q1"
+              [(ngModel)]="q1"
+              value="No"
+            />
+            No
+          </label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div *ngIf="q1 === 'Yes'" class="row my-5">
+        <div class="col-9">
+          <label for="" class="form-label"
+            >2. What rent do you pay for rented shade?</label
+          >
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+          <input
+            type="number"
+            class="form-control"
+            name="q2"
+            [(ngModel)]="q2"
+            min="0"
+          />
+        </div>
+      </div>
+      <!-- Q2 end -->
+
+      <!-- Q3 -->
+
+      <div *ngIf="q1 === 'Yes'" class="row my-5">
+        <div class="col-8">
+          <label for="" class="form-label"
+            >3. Where is your shade located?</label
+          >
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+          <label class="form-label">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q2"
+              [(ngModel)]="q3"
+              value="Urban"
+              required
+            />
+            Urban
+          </label>
+          <label class="form-label ms-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="q2"
+              [(ngModel)]="q2"
+              value="Rural"
+            />
+            Rural
+          </label>
+        </div>
+      </div>
+      <!-- Step 3 Questions End -->
+
+      <!-- Steppers Navigation -->
+      <div class="row mt-5">
+        <div class="col d-flex justify-content-end">
+          <button class="btn btn-lg btn-light" (click)="gotoStep(1, true)">
+            Back
+          </button>
+          <button class="btn btn-lg btn-primary ms-2">Next</button>
+        </div>
+      </div>
+      <!-- /.Vertical Steppers -->
+    </form>
+  </div>
+</div>

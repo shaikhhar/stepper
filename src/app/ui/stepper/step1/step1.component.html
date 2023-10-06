@@ -20,7 +20,7 @@
               type="radio"
               name="q1"
               [(ngModel)]="q1"
-              value="Yes"
+              [value]="true"
               [required]="true"
             />
             Yes
@@ -31,7 +31,7 @@
               type="radio"
               name="q1"
               [(ngModel)]="q1"
-              value="No"
+              [value]="false"
             />
             No
           </label>
@@ -40,7 +40,7 @@
       <!-- Q1 End -->
 
       <!-- q2 -->
-      <div *ngIf="q1 === 'Yes'" class="row my-5">
+      <div *ngIf="q1" class="row mt-2 mb-5">
         <div class="col-10">
           <label class="form-label">2. What is your company's age?</label>
         </div>
@@ -59,22 +59,22 @@
       <!-- Step 2 Questions End -->
 
       <!-- Q3 -->
-      <div *ngIf="q1 === 'Yes'" class="row my-5">
-        <div class="col-10">
+      <div *ngIf="q1" class="row my-5">
+        <div class="col-9">
           <label class="form-label"
             >3. What is the current group insurance premium ?</label
           >
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <input class="form-control" type="number" [(ngModel)]="q3" name="q3" [required]="true"/>
         </div>
       </div>
 
       <!-- Q4 -->
-      <div *ngIf="q1 === 'Yes'" class="row my-5">
+      <div *ngIf="q1" class="row my-5">
         <div class="col-8">
           <label for="" class="form-label"
-            >{{ q1 === "Yes" ? 4 : 2 }}. Have you had any subsidiary
+            >{{ q1 ? 4 : 2 }}. Have you had any subsidiary
             company?</label
           >
         </div>
@@ -85,7 +85,7 @@
               type="radio"
               name="q4"
               [(ngModel)]="q4"
-              value="Yes"
+              [value]="true"
               [required]="true"
             />
             Yes
@@ -96,7 +96,7 @@
               type="radio"
               name="q4"
               [(ngModel)]="q4"
-              value="No"
+              [value]="false"
             />
             No
           </label>
@@ -105,7 +105,7 @@
       <!-- Q4 end -->
 
       <!-- Q5 -->
-      <div *ngIf="q4 === 'Yes'" class="row my-5">
+      <div *ngIf="q4" class="row my-5">
         <div class="col-10">
           <label class="form-label">5. What is your subsidiary's age?</label>
         </div>
@@ -116,13 +116,13 @@
       <!--  Q5 end -->
 
       <!-- Q6 start -->
-      <div *ngIf="q4 === 'Yes'" class="row my-5">
-        <div class="col-10">
+      <div *ngIf="q4" class="row my-5">
+        <div class="col-9">
           <label for="" class="form-label"
             >6. What is the premium of subsidiary company?</label
           >
         </div>
-        <div class="col-2">
+        <div class="col-3">
           <input class="form-control" type="number" name="q6" [(ngModel)]="q6" />
         </div>
       </div>

@@ -1,1 +1,5 @@
-<p>right container!</p>
+<p *ngIf="stepperService.loading">Loading ... </p>
+
+<p *ngIf="stepperService.formSubmissionResponse$ | async">
+    {{ formResponse | json }}
+  </p>

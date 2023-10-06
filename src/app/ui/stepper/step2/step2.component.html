@@ -19,7 +19,7 @@
               type="radio"
               name="q1"
               [(ngModel)]="q1"
-              value="Yes"
+              [value]="true"
               [required]="true"
             />
             Yes
@@ -30,7 +30,7 @@
               type="radio"
               name="q1"
               [(ngModel)]="q1"
-              value="No"
+              [value]="false"
             />
             No
           </label>
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Q2 -->
-      <div *ngIf="q1 === 'Yes'" class="row my-5">
+      <div *ngIf="q1" class="row my-5">
         <div class="col-9">
           <label for="" class="form-label"
             >2. What rent do you pay for rented shade?</label
@@ -58,7 +58,7 @@
 
       <!-- Q3 -->
 
-      <div *ngIf="q1 === 'Yes'" class="row my-5">
+      <div *ngIf="q1" class="row my-5">
         <div class="col-8">
           <label for="" class="form-label"
             >3. Where is your shade located?</label

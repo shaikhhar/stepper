@@ -23,7 +23,7 @@
                 type="radio"
                 name="q1"
                 [(ngModel)]="q1"
-                value="Yes"
+                [value]="true"
                 [required]="true"
               />
               Yes
@@ -34,7 +34,7 @@
                 type="radio"
                 name="q1"
                 [(ngModel)]="q1"
-                value="No"
+                [value]="false"
               />
               No
             </label>
@@ -44,7 +44,7 @@
       <!-- q1 end -->
 
       <!-- q2 -->
-      <div class="row my-5" *ngIf="q1 === 'Yes'">
+      <div class="row my-5" *ngIf="q1">
         <div class="col-9">
           <label class="form-label"
             >2. How much does your company contribute?</label
@@ -62,7 +62,7 @@
       </div>
       <!-- q2 end -->
 
-      <div class="row my-5" *ngIf="q1 === 'Yes'">
+      <div class="row my-5" *ngIf="q1">
         <div class="col-9">
           <label class="form-label"
             >3. How much amount do you raise from people?</label

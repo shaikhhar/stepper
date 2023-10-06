@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { StepperService } from 'src/app/ui/stepper/stepper.service';
 
 @Component({
   selector: 'app-left',
@@ -29,8 +30,14 @@ import { trigger, transition, style, animate } from '@angular/animations';
     )
   ]
 })
-export class LeftComponent {
-  activeStep = 1;
+export class LeftComponent implements OnInit{
+  currentStep = 1;
+
+  constructor(private stepperService: StepperService) {
+    this.currentStep = stepperService.getCurrentStep();
+  }
+
+  
   q1!: string;  // Variables for capturing user inputs
   q2!: number;
   q3!: number;
@@ -48,15 +55,21 @@ export class LeftComponent {
 
   collapsedSteps: number[] = [2, 3, 4];
 
+  ngOnInit(): void {
+      this.stepperService.currentStep$.subscribe(s => {
+        this.currentStep = s;
+      })
+  }
+
   isCollapsed(stepNumber: number): boolean {
-    return this.activeStep !== stepNumber;
+    return this.currentStep !== stepNumber;
   }
 
   toggleStep(stepNumber: number) {
-    this.activeStep = this.activeStep === stepNumber ? this.activeStep : stepNumber;
+    this.currentStep = this.currentStep === stepNumber ? this.currentStep : stepNumber;
   }
 
   gotoStep(stepNumber: number) {
-    this.activeStep = stepNumber;
+    this.currentStep = stepNumber;
   }
 }

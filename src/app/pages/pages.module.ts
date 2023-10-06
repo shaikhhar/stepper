@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LeftComponent } from './questions/left/left.component';
 import { RightComponent } from './questions/right/right.component';
 import { FormsModule } from '@angular/forms'
+import { UiModule } from '../ui/ui.module';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    UiModule,
     RouterModule.forChild(routes),
     
   ]

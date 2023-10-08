@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -91,6 +92,7 @@ export class StepperService {
   async submitAnswer() {
     this.progress.next(100);
     this.loading = true;
+    // TODO: for it to work on production, replace the url below with ${environment.api/company-profile/input}
     const response = await lastValueFrom(
       this.httpClient.post('/api/company-profile/input', this.getFormBody())
     );

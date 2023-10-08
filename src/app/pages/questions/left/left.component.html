@@ -1,4 +1,6 @@
-<p>progress bar here...</p>
+<div class="progress mt-5">
+  <div class="progress-bar" role="progressbar" [style.width]="(stepperService.progress$ | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
 <!-- Vertical Steppers -->
 <div class="row mt-5">
   <div class="col-md-12">

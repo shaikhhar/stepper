@@ -15,6 +15,9 @@ export class StepperService {
   private formSubmissionResponse = new BehaviorSubject<any>(null);
   public formSubmissionResponse$ = this.formSubmissionResponse.asObservable();
 
+  private progress = new BehaviorSubject<number>(0);
+  public progress$ = this.progress.asObservable();
+
   public loading = false;
 
   answersBody: any = {
@@ -32,6 +35,7 @@ export class StepperService {
 
   setCurrentStep(step: number) {
     this.currentStep.next(step);
+    this.progress.next((step - 1) * 25);
   }
 
   setAnswers(step: number, answers: any) {
@@ -85,13 +89,12 @@ export class StepperService {
   }
 
   async submitAnswer() {
-    console.log('FormBody ', this.getFormBody())
+    this.progress.next(100);
     this.loading = true;
     const response = await lastValueFrom(
       this.httpClient.post('/api/company-profile/input', this.getFormBody())
     );
     this.loading = false;
-    console.log('response ', response);
     this.formSubmissionResponse.next(response);
 
   }

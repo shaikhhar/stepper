@@ -1,5 +1,45 @@
-<p *ngIf="stepperService.loading">Loading ... </p>
+<div>
+  <p *ngIf="stepperService.loading">Loading ...</p>
 
-<p *ngIf="stepperService.formSubmissionResponse$ | async">
-    {{ formResponse | json }}
-  </p>
+  <div *ngIf="!stepperService.loading && !formResponseEmpty" #response>
+    <div *ngFor="let key of formResponseKeys" class="company-insurance d-flex flex-column align-items-end mb-5 mt-2">
+      <p class="title fw-bold">{{ key }}</p>
+      <div class="company-insurance" class="comments">
+        <p class="text-justify">
+          {{ formResponse[key]["comments"] }}
+        </p>
+      </div>
+    </div>
+
+    <!-- <div class="company-insurance d-flex flex-column align-items-end my-3">
+      <p class="title fw-bold">Corporate Social Responsibility</p>
+      <div class="company-insurance" class="comments">
+        <p class="text-justify">
+          {{ formResponse["company-insurance"]["comments"] }}
+        </p>
+      </div>
+    </div>
+
+
+    <div class="company-insurance d-flex flex-column align-items-end my-3">
+      <p class="title fw-bold">Company insurance</p>
+      <div class="company-insurance" class="comments">
+        <p class="text-justify">
+          {{ formResponse["company-insurance"]["comments"] }}
+        </p>
+      </div>
+    </div>
+
+
+    <div class="company-insurance d-flex flex-column align-items-end">
+      <p class="title fw-bold">Company insurance</p>
+      <div class="company-insurance" class="comments">
+        <p class="text-justify">
+          {{ formResponse["company-insurance"]["comments"] }}
+        </p>
+      </div>
+    </div> -->
+
+
+  </div>
+</div>

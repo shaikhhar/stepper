@@ -1,6 +1,10 @@
 <div class="container">
   <div class="mt-4 p-3">
-    <form ngNativeValidate #step1Form="ngForm" (ngSubmit)="gotoStep(2, step1Form.valid)">
+    <form
+      ngNativeValidate
+      #step1Form="ngForm"
+      (ngSubmit)="gotoStep(2, step1Form.valid)"
+    >
       <!-- Q1 start -->
       <div class="row">
         <div class="col-8">
@@ -39,104 +43,121 @@
       </div>
       <!-- Q1 End -->
 
-      <!-- q2 -->
-      <div *ngIf="q1" class="row mt-2 mb-5">
-        <div class="col-10">
-          <label class="form-label">2. What is your company's age?</label>
-        </div>
-        <div class="col-2">
-          <input
-            class="form-control"
-            type="number"
-            [(ngModel)]="q2"
-            name="age"
-            min="0"
-            max="100"
-            [required]="true"
-          />
-        </div>
-      </div>
-      <!-- Step 2 Questions End -->
-
-      <!-- Q3 -->
-      <div *ngIf="q1" class="row my-5">
-        <div class="col-9">
-          <label class="form-label"
-            >3. What is the current group insurance premium ?</label
-          >
-        </div>
-        <div class="col-3">
-          <input class="form-control" type="number" [(ngModel)]="q3" name="q3" [required]="true"/>
-        </div>
-      </div>
-
-      <!-- Q4 -->
-      <div *ngIf="q1" class="row my-5">
-        <div class="col-8">
-          <label for="" class="form-label"
-            >{{ q1 ? 4 : 2 }}. Have you had any subsidiary
-            company?</label
-          >
-        </div>
-        <div class="col-4 d-flex justify-content-end">
-          <label class="form-label">
+      <ng-container *ngIf="q1">
+        <!-- q2 -->
+        <div *ngIf="q1" class="row mt-2 mb-5">
+          <div class="col-10">
+            <label class="form-label">2. What is your company's age?</label>
+          </div>
+          <div class="col-2">
             <input
-              class="form-check-input"
-              type="radio"
-              name="q4"
-              [(ngModel)]="q4"
-              [value]="true"
+              class="form-control"
+              type="number"
+              [(ngModel)]="q2"
+              name="age"
+              min="0"
+              max="100"
               [required]="true"
             />
-            Yes
-          </label>
-          <label class="form-label ms-3">
+          </div>
+        </div>
+        <!-- Step 2 Questions End -->
+
+        <!-- Q3 -->
+        <div *ngIf="q1" class="row my-5">
+          <div class="col-8">
+            <label class="form-label"
+              >3. What is the current group insurance premium ?</label
+            >
+          </div>
+          <div class="col-4">
             <input
-              class="form-check-input"
-              type="radio"
-              name="q4"
-              [(ngModel)]="q4"
-              [value]="false"
+              class="form-control text-end"
+              type="number"
+              [(ngModel)]="q3"
+              name="q3"
+              [required]="true"
             />
-            No
-          </label>
+          </div>
         </div>
-      </div>
-      <!-- Q4 end -->
 
-      <!-- Q5 -->
-      <div *ngIf="q4" class="row my-5">
-        <div class="col-10">
-          <label class="form-label">5. What is your subsidiary's age?</label>
+        <!-- Q4 -->
+        <div *ngIf="q1" class="row my-5">
+          <div class="col-8">
+            <label for="" class="form-label"
+              >{{ q1 ? 4 : 2 }}. Have you had any subsidiary company?</label
+            >
+          </div>
+          <div class="col-4 d-flex justify-content-end">
+            <label class="form-label">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q4"
+                [(ngModel)]="q4"
+                [value]="true"
+                [required]="true"
+              />
+              Yes
+            </label>
+            <label class="form-label ms-3">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q4"
+                [(ngModel)]="q4"
+                [value]="false"
+              />
+              No
+            </label>
+          </div>
         </div>
-        <div class="col-2">
-          <input class="form-control" type="number" name="q5" [(ngModel)]="q5" min="0" />
-        </div>
-      </div>
-      <!--  Q5 end -->
+        <!-- Q4 end -->
 
-      <!-- Q6 start -->
-      <div *ngIf="q4" class="row my-5">
-        <div class="col-9">
-          <label for="" class="form-label"
-            >6. What is the premium of subsidiary company?</label
-          >
+        <!-- Q5 -->
+        <div *ngIf="q4" class="row my-5">
+          <div class="col-10">
+            <label class="form-label">5. What is your subsidiary's age?</label>
+          </div>
+          <div class="col-2">
+            <input
+              class="form-control"
+              type="number"
+              name="q5"
+              [(ngModel)]="q5"
+              min="0"
+            />
+          </div>
         </div>
-        <div class="col-3">
-          <input class="form-control" type="number" name="q6" [(ngModel)]="q6" />
+        <!--  Q5 end -->
+
+        <!-- Q6 start -->
+        <div *ngIf="q4" class="row my-5">
+          <div class="col-8">
+            <label for="" class="form-label"
+              >6. What is the premium of subsidiary company?</label
+            >
+          </div>
+          <div class="col-4">
+            <input
+              class="form-control text-end"
+              type="number"
+              name="q6"
+              [(ngModel)]="q6"
+            />
+          </div>
         </div>
-      </div>
-      <!-- Q6 ends -->
+        <!-- Q6 ends -->
+      </ng-container>
 
       <!-- Steppers Navigation -->
       <div class="row mt-5">
         <div class="col d-flex justify-content-end">
-          <button class="btn btn-lg btn-primary ms-2" type="submit" >
+          <button class="btn btn-lg btn-primary ms-2" type="submit">
             Next
           </button>
         </div>
       </div>
     </form>
-
   </div>
 </div>

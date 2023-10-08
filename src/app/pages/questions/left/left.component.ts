@@ -33,7 +33,7 @@ import { StepperService } from 'src/app/ui/stepper/stepper.service';
 export class LeftComponent implements OnInit{
   currentStep = 1;
 
-  constructor(private stepperService: StepperService) {
+  constructor(public stepperService: StepperService) {
     this.currentStep = stepperService.getCurrentStep();
   }
 

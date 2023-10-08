@@ -1,8 +1,13 @@
 <div>
-  <p *ngIf="stepperService.loading">Loading ...</p>
 
-  <div *ngIf="!stepperService.loading && !formResponseEmpty" #response>
-    <div *ngFor="let key of formResponseKeys" class="company-insurance d-flex flex-column align-items-end mb-5 mt-2">
+  <button class="btn btn-primary mt-5 ms-2" type="button" disabled *ngIf="stepperService.loading">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Loading...
+  </button>
+  
+
+  <div *ngIf="!stepperService.loading && !formResponseEmpty" #response class="mt-5">
+    <div *ngFor="let key of formResponseKeys" class="company-insurance d-flex flex-column align-items-start mb-5 mt-2">
       <p class="title fw-bold">{{ key }}</p>
       <div class="company-insurance" class="comments">
         <p class="text-justify">
@@ -10,36 +15,6 @@
         </p>
       </div>
     </div>
-
-    <!-- <div class="company-insurance d-flex flex-column align-items-end my-3">
-      <p class="title fw-bold">Corporate Social Responsibility</p>
-      <div class="company-insurance" class="comments">
-        <p class="text-justify">
-          {{ formResponse["company-insurance"]["comments"] }}
-        </p>
-      </div>
-    </div>
-
-
-    <div class="company-insurance d-flex flex-column align-items-end my-3">
-      <p class="title fw-bold">Company insurance</p>
-      <div class="company-insurance" class="comments">
-        <p class="text-justify">
-          {{ formResponse["company-insurance"]["comments"] }}
-        </p>
-      </div>
-    </div>
-
-
-    <div class="company-insurance d-flex flex-column align-items-end">
-      <p class="title fw-bold">Company insurance</p>
-      <div class="company-insurance" class="comments">
-        <p class="text-justify">
-          {{ formResponse["company-insurance"]["comments"] }}
-        </p>
-      </div>
-    </div> -->
-
 
   </div>
 </div>

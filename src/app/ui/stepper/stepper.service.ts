@@ -10,6 +10,8 @@ export class StepperService {
   private currentStep = new BehaviorSubject<number>(1);
   public currentStep$ = this.currentStep.asObservable();
 
+  private stepsCompleted = 0;
+
   private answers = new BehaviorSubject<any>({ 1: {}, 2: {}, 3: {}, 4: {} });
   public answers$ = this.answers.asObservable();
 
@@ -36,7 +38,10 @@ export class StepperService {
 
   setCurrentStep(step: number) {
     this.currentStep.next(step);
-    this.progress.next((step - 1) * 25);
+    if (step > this.stepsCompleted) {
+      this.stepsCompleted = step;
+      this.progress.next((step - 1) * 25);
+    }
   }
 
   setAnswers(step: number, answers: any) {

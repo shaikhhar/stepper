@@ -12,8 +12,6 @@ export class Step2Component implements OnInit {
   q2!: number;
   q3!: string;
 
-  collapsedSteps: number[] = [2, 3, 4];
-
   constructor(private stepperService: StepperService) {}
 
   ngOnInit(): void {
@@ -23,15 +21,6 @@ export class Step2Component implements OnInit {
       this.q2 = q2;
       this.q3 = q3;
     });
-  }
-
-  isCollapsed(stepNumber: number): boolean {
-    return this.activeStep !== stepNumber;
-  }
-
-  toggleStep(stepNumber: number) {
-    this.activeStep =
-      this.activeStep === stepNumber ? this.activeStep : stepNumber;
   }
 
   gotoStep(stepNumber: number, formValid: boolean | null) {

@@ -11,6 +11,8 @@ export class Step4Component implements OnInit {
   q1!: number; // Variables for capturing user inputs
   q2!: number;
 
+  loading = false;
+
   constructor(private stepperService: StepperService) {}
 
   ngOnInit(): void {
@@ -19,14 +21,6 @@ export class Step4Component implements OnInit {
       this.q1 = q1;
       this.q2 = q2;
     });
-  }
-  isCollapsed(stepNumber: number): boolean {
-    return this.activeStep !== stepNumber;
-  }
-
-  toggleStep(stepNumber: number) {
-    this.activeStep =
-      this.activeStep === stepNumber ? this.activeStep : stepNumber;
   }
 
   async gotoStep(stepNumber: number, formValid: boolean | null) {
@@ -38,8 +32,15 @@ export class Step4Component implements OnInit {
       });
       if (stepNumber === 3) {
         this.stepperService.setCurrentStep(stepNumber);
+        return;
       }
-      await this.stepperService.submitAnswer();
+      this.loading = true;
+      try {
+        await this.stepperService.submitAnswer();
+      } catch (error: any) {
+        alert(error.message);
+      }
+      this.loading = false;
     }
   }
 }

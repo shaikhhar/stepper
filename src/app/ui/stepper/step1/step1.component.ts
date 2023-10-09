@@ -29,16 +29,7 @@ export class Step1Component implements OnInit {
       this.q6 = q6;
     });
   }
-
-  isCollapsed(stepNumber: number): boolean {
-    return this.activeStep !== stepNumber;
-  }
-
-  toggleStep(stepNumber: number) {
-    this.activeStep =
-      this.activeStep === stepNumber ? this.activeStep : stepNumber;
-  }
-
+  
   gotoStep(stepNumber: number, formValid: boolean | null) {
     if (formValid) {
       const { q1, q2, q3, q4, q5, q6 } = this;

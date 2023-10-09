@@ -23,14 +23,6 @@ export class Step3Component implements OnInit {
     });
   }
 
-  isCollapsed(stepNumber: number): boolean {
-    return this.activeStep !== stepNumber;
-  }
-
-  toggleStep(stepNumber: number) {
-    this.activeStep =
-      this.activeStep === stepNumber ? this.activeStep : stepNumber;
-  }
 
   gotoStep(stepNumber: number, formValid: boolean | null) {
     if (formValid) {

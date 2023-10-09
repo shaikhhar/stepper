@@ -48,7 +48,6 @@ export class StepperService {
     const currentAnswers = this.answers.value;
     currentAnswers[step] = answers;
     this.answers.next(currentAnswers);
-    console.log('answers ', this.answers.value);
   }
 
   getFormBody() {
@@ -81,10 +80,8 @@ export class StepperService {
     // step3 answers
     this.answersBody['csr']['wthr-csr'] = answers[3].q1;
     if (answers[3].q1) {
-      this.answersBody['csr']['company-contribution'] =
-        answers[3].q2;
-      this.answersBody['csr']['people-contribution'] =
-        answers[3].q3;
+      this.answersBody['csr']['company-contribution'] = answers[3].q2;
+      this.answersBody['csr']['people-contribution'] = answers[3].q3;
     }
 
     // step4 answers
@@ -98,11 +95,15 @@ export class StepperService {
     this.progress.next(100);
     this.loading = true;
     // TODO: for it to work on production, replace the url below with ${environment.api/company-profile/input}
-    const response = await lastValueFrom(
-      this.httpClient.post('/api/company-profile/input', this.getFormBody())
-    );
-    this.loading = false;
-    this.formSubmissionResponse.next(response);
-
+    try {
+      const response = await lastValueFrom(
+        this.httpClient.post('/api/company-profile/input', this.getFormBody())
+      );
+      this.formSubmissionResponse.next(response);
+    } catch (error) {
+      throw error;
+    } finally {
+      this.loading = false;
+    }
   }
 }

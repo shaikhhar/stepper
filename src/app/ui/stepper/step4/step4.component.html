@@ -47,7 +47,7 @@
           <button class="btn btn-md btn-light" (click)="gotoStep(3, true)">
             Back
           </button>
-          <button class="btn btn-md btn-primary ms-2" type="submit">
+          <button class="btn btn-md btn-primary ms-2" type="submit" [disabled]="loading">
             Submit
           </button>
         </div>
